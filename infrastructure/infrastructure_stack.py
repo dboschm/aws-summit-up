@@ -1,5 +1,7 @@
 from aws_cdk import Stack
 from constructs import Construct
+
+from aws_cdk.aws_lambda_python_alpha import PythonFunction
 from aws_cdk import aws_lambda as _lambda
 from aws_cdk import aws_apigateway as apigateway
 from aws_cdk import aws_dynamodb as ddb
@@ -19,11 +21,12 @@ class InfrastructureStack(Stack):
         )
 
         # Lambda Function to interact with DynamoDB
-        lambda_function = _lambda.Function(
+        lambda_function = PythonFunction(
             self, "MyFunction",
             runtime=_lambda.Runtime.PYTHON_3_12,
-            handler="lambda_handler.handler",
-            code=_lambda.Code.from_asset("../service")
+            handler="handler",
+            entry="../service",
+            index="lambda_handler.py"
         )
 
         # Grant the Lambda function read/write permissions on the table
