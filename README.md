@@ -7,6 +7,6 @@ AWS Summit Berlin Learnings
 - [ ] VTL Velocity Template Language -> for transforming Data (z.b. DynamoDB Streams to EventBridge)
 - [ ] EMF Embedded Metrics Format
 - [X] CDK
-- [ ] X-Ray
+- [-] X-Ray
 
 - [ ] Karpenter
